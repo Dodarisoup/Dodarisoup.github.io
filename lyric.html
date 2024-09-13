@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음악 가사 업로드</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, textarea {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #lyrics-display {
+            margin-top: 30px;
+            white-space: pre-wrap;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 400px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>음악 가사 업로드</h1>
+    <form id="lyricsForm">
+        <textarea id="lyricsInput" rows="10" placeholder="여기에 가사를 입력하세요"></textarea>
+        <button type="button" onclick="uploadLyrics()">업로드</button>
+    </form>
+
+    <div id="lyrics-display" style="display:none;">
+        <h2>업로드된 가사</h2>
+        <pre id="lyricsText"></pre>
+    </div>
+
+    <script>
+        function uploadLyrics() {
+            const lyrics = document.getElementById('lyricsInput').value;
+            if (lyrics.trim() === '') {
+                alert('가사를 입력하세요.');
+                return;
+            }
+            document.getElementById('lyricsText').textContent = lyrics;
+            document.getElementById('lyrics-display').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
